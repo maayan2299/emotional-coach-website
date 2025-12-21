@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 210 30% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 30% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 30% 12%;
+
+    --primary: 210 70% 10%;
+    --primary-foreground: 40 45% 88%;
+
+    --secondary: 40 45% 88%;
+    --secondary-foreground: 210 70% 10%;
+
+    --muted: 40 30% 92%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 38 44% 60%;
+    --accent-foreground: 210 70% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 40 45% 88%;
+
+    --border: 40 25% 85%;
+    --input: 40 25% 85%;
+    --ring: 38 44% 60%;
+
+    --radius: 1rem;
+    
+    /* Gradients for smooth transitions - softer and more blended */
+    --gradient-primary: linear-gradient(180deg, hsl(210, 70%, 10%) 0%, hsl(210, 65%, 15%) 50%, hsl(210, 60%, 20%) 100%);
+    --gradient-secondary: linear-gradient(180deg, hsl(40, 45%, 88%) 0%, hsl(40, 40%, 90%) 50%, hsl(40, 35%, 92%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(210, 70%, 12%) 0%, hsl(220, 60%, 20%) 30%, hsl(230, 50%, 30%) 60%, hsl(40, 45%, 85%) 100%);
+    --gradient-soft-blue: linear-gradient(135deg, hsl(210, 70%, 95%) 0%, hsl(220, 60%, 92%) 50%, hsl(230, 50%, 88%) 100%);
+    
+    /* Shadows for depth */
+    --shadow-soft: 0 4px 20px rgba(13, 27, 42, 0.08);
+    --shadow-medium: 0 8px 30px rgba(13, 27, 42, 0.12);
+    --shadow-glow: 0 0 40px rgba(197, 164, 109, 0.15);
+    
+    /* Transitions - smoother and slower */
+    --transition-smooth: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 210 70% 10%;
+    --foreground: 40 45% 88%;
+
+    --card: 210 60% 14%;
+    --card-foreground: 40 45% 88%;
+
+    --popover: 210 60% 14%;
+    --popover-foreground: 40 45% 88%;
+
+    --primary: 40 45% 88%;
+    --primary-foreground: 210 70% 10%;
+
+    --secondary: 210 50% 18%;
+    --secondary-foreground: 40 45% 88%;
+
+    --muted: 210 50% 18%;
+    --muted-foreground: 40 30% 70%;
+
+    --accent: 38 44% 60%;
+    --accent-foreground: 40 45% 88%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 40 45% 88%;
+
+    --border: 210 50% 18%;
+    --input: 210 50% 18%;
+    --ring: 38 44% 60%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Assistant', 'Noto Sans Hebrew', sans-serif;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Heebo', 'David Libre', serif;
+    font-weight: 700;
+  }
+  
+  /* Smooth transitions for all interactive elements */
+  button, a, .card {
+    transition: var(--transition-smooth);
+  }
+  
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Fade in on scroll animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  
+  /* Floating animation for decorative elements */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  .floating {
+    animation: float 6s ease-in-out infinite;
+  }
+}
