@@ -5,6 +5,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+// ייבוא של רכיב הנגישות החדש שיצרת
+import AccessibilityMenu from "./Accessibility"; 
 
 const queryClient = new QueryClient();
 
@@ -14,6 +16,9 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        {/* הוספת כפתור הנגישות כאן מבטיחה שהוא יופיע מעל כל דפי האתר */}
+        <AccessibilityMenu /> 
+        
         <Routes>
           <Route path="/" element={<Index />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

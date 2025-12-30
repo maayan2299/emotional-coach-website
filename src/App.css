@@ -1,42 +1,132 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
+import React from 'react';
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
+/**
+ * הערה למתכנתת:
+ * 1. העתקי את ה-CSS למטה לקובץ ה-App.css שלך.
+ * 2. החלק של ה-JSX מחליף את מה שיש לך בתוך ה-return של ה-App.
+ */
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+const App = () => {
+  return (
+    <div className="landing-page">
+      {/* ייבוא הפונט המדויק מ-Google Fonts */}
+      <style>
+        {`
+          @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;600;700&display=swap');
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
+          #root {
+            max-width: 100%; /* שיניתי מ-1280 כדי שיהיה רספונסיבי */
+            margin: 0 auto;
+            padding: 0;
+            text-align: center;
+            direction: rtl; /* חשוב לעברית */
+          }
 
-.card {
-  padding: 2em;
-}
+          .landing-page {
+            font-family: 'Assistant', sans-serif;
+            background-color: #fcfcfc;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
 
-.read-the-docs {
-  color: #888;
-}
+          .header-section {
+            width: 100%;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* הזזה למעלה של כל החלק העליון */
+            margin-top: -20px; 
+          }
+
+          /* עיצוב הלוגו כטקסט (במקום תמונה) לשליטה מקסימלית */
+          .logo-title {
+            font-size: clamp(32px, 8vw, 48px);
+            font-weight: 200; /* דק ויוקרתי כמו בתמונה */
+            letter-spacing: 6px;
+            color: #333;
+            margin: 0 0 10px 0;
+            line-height: 1.2;
+          }
+
+          /* המלל החופשי (המשפט) */
+          .tagline {
+            font-size: 18px;
+            font-weight: 600; /* מודגש כמו בתמונה */
+            color: #1a2a40; /* כחול כהה/שחור */
+            max-width: 340px;
+            line-height: 1.5;
+            margin: 5px 0 20px 0;
+          }
+
+          /* איור הגלים */
+          .wave-divider {
+            width: 130px;
+            height: auto;
+            opacity: 0.7;
+          }
+
+          /* סקשן התוכן שמתחת */
+          .intro-content {
+            padding: 40px 20px;
+            max-width: 500px;
+          }
+
+          .intro-content h2 {
+            font-size: 32px;
+            color: #4a635d;
+            font-weight: 300;
+            margin-bottom: 20px;
+          }
+
+          .intro-content p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 10px;
+          }
+
+          /* תיקון ללוגו המקורי של React אם תרצי לשמור אותו */
+          .logo {
+            height: 6em;
+            padding: 1.5em;
+            will-change: filter;
+            transition: filter 300ms;
+          }
+          .logo:hover {
+            filter: drop-shadow(0 0 2em #646cffaa);
+          }
+        `}
+      </style>
+
+      <header className="header-section">
+        {/* לוגו "שני אלימלך" - עכשיו כטקסט חי שניתן להזיז למעלה בקלות */}
+        <h1 className="logo-title">שני אלימלך</h1>
+        
+        {/* המשפט כטקסט חי - הלקוחה תקבל בדיוק את הפונט שהיא רוצה */}
+        <p className="tagline">
+          "מאמנת רגשית המתמחה בתהליכי שינוי פנימי, צמיחה אישית והעצמה."
+        </p>
+
+        {/* איור הגלים (במקום תמונה, זה נשמר חד וברור) */}
+        <svg className="wave-divider" viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,15 Q25,5 50,15 T100,15" fill="none" stroke="#4a635d" strokeWidth="1.5" />
+        </svg>
+      </header>
+
+      <main className="intro-content">
+        <h2>נעים להכיר</h2>
+        <p><strong>שני אלימלך | מאמנת רגשית ומאסטר ב-NLP</strong></p>
+        <p>נשואה לחבר הכי טוב שלי ואמא לשלושה ילדים אהובים.</p>
+        <p>
+          אני מלווה ילדים, נוער ומבוגרים בתהליכי שינוי וצמיחה, 
+          בשילוב כלים מעולמות ה-NLP, הפסיכולוגיה החיובית והדמיון המודרך.
+        </p>
+      </main>
+    </div>
+  );
+};
+
+export default App;
