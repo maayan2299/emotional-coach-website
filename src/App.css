@@ -1,25 +1,28 @@
 import React from 'react';
 
-/**
- * הערה למתכנתת:
- * 1. העתקי את ה-CSS למטה לקובץ ה-App.css שלך.
- * 2. החלק של ה-JSX מחליף את מה שיש לך בתוך ה-return של ה-App.
- */
-
 const App = () => {
   return (
     <div className="landing-page">
-      {/* ייבוא הפונט המדויק מ-Google Fonts */}
       <style>
         {`
           @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;600;700&display=swap');
 
+          * {
+            box-sizing: border-box;
+          }
+
+          body, html {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+          }
+
           #root {
-            max-width: 100%; /* שיניתי מ-1280 כדי שיהיה רספונסיבי */
+            max-width: 100%;
             margin: 0 auto;
             padding: 0;
             text-align: center;
-            direction: rtl; /* חשוב לעברית */
+            direction: rtl;
           }
 
           .landing-page {
@@ -29,6 +32,7 @@ const App = () => {
             display: flex;
             flex-direction: column;
             align-items: center;
+            width: 100%;
           }
 
           .header-section {
@@ -37,81 +41,65 @@ const App = () => {
             display: flex;
             flex-direction: column;
             align-items: center;
-            /* הזזה למעלה של כל החלק העליון */
-            margin-top: -20px; 
+            margin-top: -20px;
           }
 
-          /* עיצוב הלוגו כטקסט (במקום תמונה) לשליטה מקסימלית */
           .logo-title {
             font-size: clamp(32px, 8vw, 48px);
-            font-weight: 200; /* דק ויוקרתי כמו בתמונה */
+            font-weight: 200;
             letter-spacing: 6px;
             color: #333;
             margin: 0 0 10px 0;
             line-height: 1.2;
           }
 
-          /* המלל החופשי (המשפט) */
           .tagline {
             font-size: 18px;
-            font-weight: 600; /* מודגש כמו בתמונה */
-            color: #1a2a40; /* כחול כהה/שחור */
+            font-weight: 600;
+            color: #1a2a40;
             max-width: 340px;
             line-height: 1.5;
             margin: 5px 0 20px 0;
           }
 
-          /* איור הגלים */
           .wave-divider {
             width: 130px;
             height: auto;
             opacity: 0.7;
           }
 
-          /* סקשן התוכן שמתחת */
           .intro-content {
             padding: 40px 20px;
-            max-width: 600px;
+            max-width: 700px;
+            width: 100%;
             text-align: right;
+            display: block;
           }
 
           .intro-content h2 {
             font-size: 32px;
             color: #4a635d;
             font-weight: 300;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
           }
 
           .intro-content p {
             font-size: 18px;
             line-height: 1.8;
             color: #444;
-            margin-bottom: 15px;
-          }
-
-          /* תיקון ללוגו המקורי של React אם תרצי לשמור אותו */
-          .logo {
-            height: 6em;
-            padding: 1.5em;
-            will-change: filter;
-            transition: filter 300ms;
-          }
-          .logo:hover {
-            filter: drop-shadow(0 0 2em #646cffaa);
+            margin-bottom: 20px;
+            display: block;
           }
         `}
       </style>
 
       <header className="header-section">
-        {/* לוגו "שני אלימלך" - עכשיו כטקסט חי שניתן להזיז למעלה בקלות */}
         <h1 className="logo-title">שני אלימלך</h1>
         
-        {/* המשפט כטקסט חי - הלקוחה תקבל בדיוק את הפונט שהיא רוצה */}
         <p className="tagline">
           "מאמנת רגשית המתמחה בתהליכי שינוי פנימי, צמיחה אישית והעצמה."
         </p>
 
-        {/* איור הגלים (במקום תמונה, זה נשמר חד וברור) */}
         <svg className="wave-divider" viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg">
           <path d="M0,15 Q25,5 50,15 T100,15" fill="none" stroke="#4a635d" strokeWidth="1.5" />
         </svg>
@@ -119,24 +107,29 @@ const App = () => {
 
       <main className="intro-content">
         <h2>נעים להכיר</h2>
+        
         <p>
           <strong>אני שני אלימלך - מאמנת רגשית ומאסטר ב-NLP.</strong><br />
           נשואה לחבר הכי טוב שלי ואמא לשלושה ילדים אהובים.
         </p>
+        
         <p>
           אני מלווה ילדים, נוער ומבוגרים בתהליכי שינוי, צמיחה וחיבור לעצמם, 
           בשילוב כלים מעולמות ה-NLP, הפסיכולוגיה החיובית, הדמיון המודרך ויומן המסע.
         </p>
+        
         <p>
           הדרך המקצועית שלי התחילה מתוך מסע אישי: רצון להבין את עצמי לעומק, 
           לרפא כאבים, לזהות חוזקות, וליצור חיים מדויקים יותר. התהליכים שעברתי 
           הובילו אותי לתשוקה הגדולה שלי - לעזור לאחרים לראות את האור שבתוכם, 
           לשחרר פחדים, ולהתחבר לכוחות הפנימיים שממתינים להיחשף.
         </p>
+        
         <p>
           אני מאמינה שכל אדם, בכל גיל, יכול ללמוד להקשיב לעצמו, לרפא פצעים ישנים, 
           ולבנות מציאות של שלווה, ביטחון ואהבה.
         </p>
+        
         <p>
           בקליניקה שלי אני יוצרת מרחב בטוח, חומל ומאפשר - מקום שבו אפשר להיות, 
           להרגיש, להשתחרר ולצמוח.
